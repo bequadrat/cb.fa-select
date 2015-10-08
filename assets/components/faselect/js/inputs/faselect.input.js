@@ -25,6 +25,7 @@
             }
             $.get(faOutputPath + faOutputFile, function(d) {
 //console.log(d);
+                if(typeof d === 'string') d = JSON.parse(d);
                 $.each(d, function(k, v) {
                     var selected = (v === data.value) ? 'selected' : '';
                     select.append('<option value="' + v + '" ' + selected + '>' + k + '</option>');
